@@ -17,19 +17,25 @@ int main(void) {
         }
     }
 
+    // Skips ignorable characters before the first letters
     while (*p1 <'a' || *p1 >'z') {
         p1++;
     }
     while (*p2 <'a' || *p2 >'z') {
         p2--;
     }
+    // Checks if the two letters are the same
     while (*p1 == *p2) {
+        // If the pointers are equal we are finished and since we are still in the loop it's a palindrome
         if (p1-p2>0) {
             printf("palindrome\n");
+            // Quit because we found the solution
             return 0;
         }
+        // Moves pointers closer
         p1++;
         p2--;
+        // Skips ignorable characters
         while (*p1 <'a' || *p1 >'z') {
             p1++;
         }
@@ -37,6 +43,7 @@ int main(void) {
             p2--;
         }
     }
+    // If we left the loop it wasn't a palindrome
     printf("not a palindrome\n");
     return 0;
 }
